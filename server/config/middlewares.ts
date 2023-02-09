@@ -1,6 +1,31 @@
-export default [
+module.exports = ({ env }) => [
   'strapi::errors',
-  'strapi::security',
+    {
+      name: 'strapi::security',
+      config: {
+        contentSecurityPolicy: {
+          useDefaults: true,
+          directives: {
+            'connect-src': ["'self'", 'https:'],
+            'img-src': [
+              "'self'",
+              'data:',
+              'blob:',
+              'dl.airtable.com',
+              `${env('AWS_BUCKET')}.s3.${env('ENV_REGION')}-1.amazonaws.com`,
+            ],
+            'media-src': [
+              "'self'",
+              'data:',
+              'blob:',
+              'dl.airtable.com',
+              `${env('AWS_BUCKET')}.s3.${env('ENV_REGION')}-1.amazonaws.com`,
+            ],
+            upgradeInsecureRequests: null,
+          },
+        },
+      },
+    },
   'strapi::cors',
   'strapi::poweredBy',
   'strapi::logger',
