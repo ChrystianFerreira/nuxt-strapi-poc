@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "footers",
+  "info": {
+    "singularName": "footer",
+    "pluralName": "footers",
+    "displayName": "footer"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "copyright": {
+      "type": "string",
+      "default": "Copyright® Qualy - Todos os direitos reservados"
+    },
+    "socialLink": {
+      "displayName": "socialLink",
+      "type": "component",
+      "repeatable": true,
+      "component": "page.social-link"
+    }
+  }
+}
