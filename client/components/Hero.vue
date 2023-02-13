@@ -1,10 +1,9 @@
 <template>
-  <section v-if="hero && hero.heading">
-    <h1 class="font-medium leading-tight text-4xl">{{ hero.heading }}</h1>
+  <section class="flex justify-center items-center flex-col h-96" v-if="hero && hero.heading">
+    <h1 class="font-medium leading-tight text-4xl mb-4">{{ hero.heading }}</h1>
 
     <p class="font-medium leading-tight text-2xl">{{ hero.description }}</p>
   </section>
-
 </template>
 
 <script setup>
