@@ -1,12 +1,11 @@
 <template>
 	<h1>Home</h1>
-
-	<Hero :data="hero" />
+	
+	<Hero :hero="hero" />
 </template>
 
-
 <script setup>
-	const hero = reactive({});
+	const hero = ref();
 	
 	const getPageData = async () => {
 		const { find } = useStrapi4()
