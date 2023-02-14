@@ -1,6 +1,9 @@
 <template>
 	<div class="h-full" v-if="home">
-		<Hero class="bg-gradient-to-b from-yellow-100 via-yellow-300 to-yellow-300 text-white" :hero="home.hero" />
+		<Hero 
+			:hero="home.hero"
+			class="bg-gradient-to-b from-yellow-300 via-yellow-400 to-yellow-300 text-white" 
+		/>
 		
 		<section class="flex flex-col items-center gap-4 mt-4">
 			<h2>Encontre o que precisa</h2>

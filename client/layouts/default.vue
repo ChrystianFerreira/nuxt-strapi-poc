@@ -6,7 +6,7 @@
 					<nuxt-img width="100px" :src="layout.header.logo.data.attributes.url" />
 				</NuxtLink>
 
-				<ul class="flex items-center justify-center gap-12 mx-auto">
+				<ul class="flex items-center justify-center gap-2 sm:gap-6 md:gap-8 lg:gap-12 mx-auto">
 					<li v-for="link in layout.header.link" :key="link.id">
 						<NuxtLink :to="link.url">{{ link.label }}</NuxtLink>
 					</li>

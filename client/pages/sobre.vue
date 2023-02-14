@@ -1,9 +1,10 @@
 <template>
-	<h1>Sobre</h1>
+	<Hero 
+		class="bg-gradient-to-b from-orange-400 via-orange-500 to-orange-400 text-white" 
+		:hero="about.hero" 
+	/>
 
-	<Hero :hero="about.hero" />
-
-	<p>{{ about.description }}</p>
+	<p class="text-5xl">{{ about.description }}</p>
 </template>
 
 <script setup>

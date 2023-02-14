@@ -1,36 +1,34 @@
 <template>
-	<h1>Produtos</h1>
+	<Hero class="bg-gradient-to-b from-amber-300 via-amber-400 to-amber-300 text-white" :hero="hero" />
 
-	<h2>Acesse os produtos e encontre receitas!</h2>
-
-	<section>
-		<NuxtLink v-for="product in products" :to="`produtos/${product.id}`">
-		<article>
-			<h3>{{ product.attributes.name }}</h3>
-
-			<nuxt-img v-if="product.attributes.image" width="250px" :src="product.attributes.image.data.attributes.url" />
-		</article>
-	</NuxtLink>
-
+	<section class="flex flex-wrap flex-col sm:flex-row gap-y-4 gap-x-4 mb-4 justify-around items-center">
+		<template v-if="products" v-for="product in products">
+			<ProductCard :product="product"  />
+		</template>
 	</section>
 </template>
 
 <script setup>
-	const products = ref([]);
-	
-	const getPageData = async () => {		
-		const { find } = useStrapi4()
+const products = ref([]);
 
-		try {
-			const { data: productsList } = await find('products?populate=*');
-			
-			products.value = productsList;
-		} catch (e) {
-			console.error(e);
-		}
+const getPageData = async () => {
+	const { find } = useStrapi4()
+
+	try {
+		const { data: productsList } = await find('products?populate=*');
+
+		products.value = productsList;
+	} catch (e) {
+		console.error(e);
 	}
+}
 
-	getPageData();
+getPageData();
+
+const hero = {
+	heading: "Produtos",
+	description: "Conheça a linha de produtos e encontre receitas!"
+}
 </script>
 
 <style lang="scss" scoped>

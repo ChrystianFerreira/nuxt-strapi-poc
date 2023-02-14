@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-02-13T18:01:52.253Z"
+    "x-generation-date": "2023-02-14T12:28:21.283Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5321,6 +5321,12 @@
               },
               "hero": {
                 "$ref": "#/components/schemas/PageHeroComponent"
+              },
+              "buttons": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/PageLinkComponent"
+                }
               }
             }
           }
@@ -5343,6 +5349,12 @@
               },
               "hero": {
                 "$ref": "#/components/schemas/PageHeroComponent"
+              },
+              "buttons": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/PageLinkComponent"
+                }
               },
               "createdAt": {
                 "type": "string",
@@ -5662,6 +5674,12 @@
               },
               "hero": {
                 "$ref": "#/components/schemas/PageHeroComponent"
+              },
+              "buttons": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/PageLinkComponent"
+                }
               },
               "createdAt": {
                 "type": "string",
@@ -6015,6 +6033,12 @@
               "hero": {
                 "$ref": "#/components/schemas/PageHeroComponent"
               },
+              "buttons": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/PageLinkComponent"
+                }
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time"
@@ -6334,6 +6358,12 @@
               "hero": {
                 "$ref": "#/components/schemas/PageHeroComponent"
               },
+              "buttons": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/PageLinkComponent"
+                }
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time"
@@ -6642,6 +6672,20 @@
           },
           "meta": {
             "type": "object"
+          }
+        }
+      },
+      "PageLinkComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "label": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
           }
         }
       },
@@ -10450,20 +10494,6 @@
           },
           "meta": {
             "type": "object"
-          }
-        }
-      },
-      "PageLinkComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "label": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
           }
         }
       },
