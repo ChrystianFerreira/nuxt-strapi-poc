@@ -1,7 +1,7 @@
 <template>
-	<Hero class="bg-gradient-to-b from-amber-200 via-amber-200 to-amber-100" :hero="hero" />
+	<Hero class="bg-gradient-to-b from-amber-100 via-amber-100 to-amber-50" :hero="hero" />
 
-	<section class="bg-amber-100 flex flex-wrap flex-col sm:flex-row gap-y-4 gap-x-4 mb-4 justify-around items-center">
+	<section class="bg-amber-50 flex flex-wrap flex-col sm:flex-row gap-y-4 gap-x-4 mb-4 justify-around items-center">
 		<template v-if="recipes" v-for="recipe in recipes">
             <NuxtLink :to="`/receitas/${recipe.id}`">
                 <p class="text-3xl">{{ recipe.attributes.name }}</p>

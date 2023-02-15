@@ -30,9 +30,9 @@
 </template>
 
 <script setup>
-    const { id } =  useRoute().params;
+	const { id } =  useRoute().params;
 
-    const recipe = ref(null)
+	const recipe = ref(null)
 	
 	const getPageData = async () => {		
 		const { findOne } = useStrapi4();
@@ -44,7 +44,14 @@
 		}
 	}
 
-	getPageData();
+	await getPageData();
+
+	useHead({
+		title: recipe.name,
+		meta: [
+			{ hid: 'og:image', property: 'og:image', content: recipe.value.image.data.attributes.url }
+		]
+	})
 
 </script>
 

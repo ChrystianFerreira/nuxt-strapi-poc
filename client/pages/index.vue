@@ -1,8 +1,8 @@
 <template>
-	<div class="h-full bg-amber-300" v-if="home">
+	<div class="h-full bg-amber-50" v-if="home">
 		<Hero 
 			:hero="home.hero"
-			class="bg-gradient-to-b from-yellow-300 via-yellow-400 to-amber-300 text-white" 
+			class="bg-gradient-to-b from-yellow-100 via-yellow-100 to-amber-50" 
 		/>
 		
 		<section class="flex flex-col items-center gap-4 mt-4">

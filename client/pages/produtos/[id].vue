@@ -18,7 +18,7 @@
 			<h2 class="text-4xl font-medium mb-1">Receitas</h2>
 
 			<template v-if="product.recipes.data.length">
-				<article v-for="recipe in product.recipes.data" class="mb-3">
+				<article v-for="recipe in product.recipes.data" class="mb-8">
 					<NuxtLink :to="`/receitas/${recipe.id}`">
 						<h4 class="font-medium">{{ recipe.attributes.name }}</h4>
 						<p>{{ recipe.attributes.description }}</p>
@@ -27,28 +27,28 @@
 			</template>
 
 			<template v-else>
-				<h3 class="text-3xl">Não foi possível encontrar receitas para esse produto. :(</h3>
+				<h3 class="text-3xl mb-8">Não foi possível encontrar receitas para esse produto. :(</h3>
 			</template>
 		</section>
 	</template>
 </template>
 
 <script setup>
-    const { id } =  useRoute().params;
-
-    const product = ref(null)
+	const { id } =  useRoute().params;
+	const { findOne } = useStrapi4();
 	
-	const getPageData = async () => {		
-		const { findOne } = useStrapi4();
+	const { data } = await useAsyncData(
+		'product',
+		() => findOne(`products/${id}/?populate=*`));
 
-		try {
-			product.value = await findOne(`products/${id}/?populate=*`).then(res => res.data?.attributes);
-		} catch (e) {
-			console.error(e);
-		}
-	}
+	const product = { ...data._rawValue.data.attributes };	
 
-	getPageData();
+	useHead({
+		title: product.name,
+		meta: [
+			{ hid: 'og:image', property: 'og:image', content: product.image.data.attributes.url }
+		]
+	});
 
 </script>
 

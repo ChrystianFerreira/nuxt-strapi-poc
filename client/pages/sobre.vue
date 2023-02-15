@@ -1,10 +1,10 @@
 <template>
 	<Hero 
-		class="bg-gradient-to-b from-amber-300 via-amber-300 to-amber-200 mb-0" 
+		class="bg-gradient-to-b from-amber-100 via-amber-100 to-amber-50 mb-0" 
 		:hero="about.hero" 
 	/>
 
-	<p class="bg-amber-200 text-5xl">{{ about.description }}</p>
+	<p class="bg-amber-50 text-5xl">{{ about.description }}</p>
 </template>
 
 <script setup>
