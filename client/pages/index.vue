@@ -1,8 +1,8 @@
 <template>
-	<div class="h-full" v-if="home">
+	<div class="h-full bg-amber-50" v-if="home">
 		<Hero 
 			:hero="home.hero"
-			class="bg-gradient-to-b from-yellow-300 via-yellow-400 to-yellow-300 text-white" 
+			class="bg-gradient-to-b from-yellow-100 via-yellow-100 to-amber-50" 
 		/>
 		
 		<section class="flex flex-col items-center gap-4 mt-4">
@@ -11,7 +11,7 @@
 				v-for="button in home.buttons"
 				:id="button.id"
 				:to="button.url"
-				class="bg-white hover:bg-gray-100 text-amber-300 font-semibold py-2 border border-yellow-400 rounded shadow" 
+				class="bg-white hover:bg-gray-100 text-amber-900 font-semibold py-2 border border-yellow-900 rounded shadow" 
 			>
 				<!-- {{ button.attributes.label }} -->
 				<span class="px-6">{{ button.label }}</span>
