@@ -10,5 +10,10 @@ export default defineNuxtConfig({
     version: 'v4',
     cookie: {},
     cookieName: 'strapi_jwt'
-  }
+  },
+  runtimeConfig: {
+    public: {
+      DRAFT_ACCESS_KEY: process.env.DRAFT_ACCESS_KEY
+    }
+  },
 })
