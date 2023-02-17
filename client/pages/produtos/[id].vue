@@ -34,14 +34,21 @@
 </template>
 
 <script setup>
-	const { id } =  useRoute().params;
-	const { findOne } = useStrapi4();
-	
-	const { data } = await useAsyncData(
-		'product',
-		() => findOne(`products/${id}/?populate=*`));
+	const route = useRoute();
 
-	const product = { ...data._rawValue.data.attributes };	
+	const { publicationStateQuery } = useDraft(route, useRuntimeConfig());
+	
+	const { find } = useStrapi4();
+	
+	const res = await useAsyncData(
+		'product',
+		() => find(`products?populate=*${publicationStateQuery.value}&filters[id][$eq]=${route.params?.id}`));
+
+	const product = res.data._rawValue.data.length ? res.data._rawValue.data[0].attributes : null;
+
+	if(!product) {
+		showError({ message: 'Produto não encontrado', statusCode: 404 })
+	}
 
 	useHead({
 		title: product.name,
@@ -49,7 +56,6 @@
 			{ hid: 'og:image', property: 'og:image', content: product.image.data.attributes.url }
 		]
 	});
-
 </script>
 
 <style lang="scss" scoped>

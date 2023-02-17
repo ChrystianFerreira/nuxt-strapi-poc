@@ -9,13 +9,16 @@
 </template>
 
 <script setup>
+import useDraft from "@/composables/useDraft"
+
+const { publicationStateQuery } = useDraft(useRoute(), useRuntimeConfig());
+
 const products = ref([]);
+const { find } = useStrapi4()
 
 const getPageData = async () => {
-	const { find } = useStrapi4()
-
-	try {
-		const { data: productsList } = await find('products?populate=*');
+	try {		
+		const { data: productsList } = await find(`products?populate=*${publicationStateQuery.value}`);
 
 		products.value = productsList;
 	} catch (e) {

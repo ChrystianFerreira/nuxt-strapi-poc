@@ -3,10 +3,10 @@
 
 	<section class="bg-amber-50 flex flex-wrap flex-col sm:flex-row gap-y-4 gap-x-4 mb-4 justify-around items-center">
 		<template v-if="recipes" v-for="recipe in recipes">
-            <NuxtLink :to="`/receitas/${recipe.id}`">
-                <p class="text-3xl">{{ recipe.attributes.name }}</p>
-                <p class="text-2xl">{{ recipe.attributes.description }}</p>
-            </NuxtLink>
+			<NuxtLink :to="`/receitas/${recipe.id}`">
+				<p class="text-3xl">{{ recipe.attributes.name }}</p>
+				<p class="text-2xl">{{ recipe.attributes.description }}</p>
+			</NuxtLink>
 		</template>
 	</section>
 </template>

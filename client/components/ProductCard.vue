@@ -1,7 +1,9 @@
 <template>
   <article>
     <NuxtLink 
-			:to="`produtos/${product.id}`"
+			to="/produtos"
+			event=""
+			@click="redirect"
 			class="
 				w-60 h-96 my-auto
 				flex flex-col
@@ -44,12 +46,32 @@
 </template>
 
 <script setup>
-defineProps({
-  product: {
-    type: Object,
-    required: true
-  }
-})
+	const props = defineProps({
+		product: {
+			type: Object,
+			required: true
+		},
+		draft: {
+			type: Boolean,
+			default: false
+		}
+	})
+
+	const redirect = () => { 
+		let to = { 
+			path: `/produtos/${props.product.id}`,
+		}
+
+		const draftKeyQuery = useRoute().query?.DRAFT_ACCESS_KEY;
+
+		if(draftKeyQuery)
+			to.query = {
+				DRAFT_ACCESS_KEY: draftKeyQuery
+			}
+
+		useRouter().push(to);
+	}
+		
 </script>
 
 <style lang="scss" scoped>
